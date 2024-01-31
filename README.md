@@ -9,7 +9,7 @@ Refer to [cheat_keys.txt](cheat_keys.txt).
 
 
 ## References
-This project have been influenced by the following works , without using them as a reference I would've not been able to complete this project:
+This project have been influenced by the following works , without using them as a reference I would've not been able to complete this project :
 
 https://github.com/MestreLion/roguepc
 
