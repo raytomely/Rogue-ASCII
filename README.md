@@ -3,6 +3,8 @@ Port of original PC-DOS Epyx Rogue to SDL
 
 ![rogue_ascii](https://github.com/raytomely/Rogue-ASCII/assets/45993451/9313a7eb-dae1-4d28-8218-00c458903241)
 
+<sup>*(these are actual in-game screenshots)*</sup>
+
 
 ### Cheat Keys
 - Refer to [cheat_keys.txt](cheat_keys.txt).
