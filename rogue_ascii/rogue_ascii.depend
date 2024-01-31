@@ -1,0 +1,596 @@
+# depslib dependency file v1.0
+1674225440 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\armor.c
+	"rogue.h"
+	"curses.h"
+
+1706622540 c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\rogue.h
+	"extern.h"
+
+1704270128 c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\extern.h
+	<stdint.h>
+	<ctype.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+	<unistd.h>
+	<time.h>
+	<stdarg.h>
+	<stdbool.h>
+	<fcntl.h>
+	<sys/ioctl.h>
+	<linux/kd.h>
+	<locale.h>
+	"swint.h"
+
+1703835841 c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\swint.h
+
+1704111231 c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\curses.h
+	"curses_common.h"
+
+1705991895 c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\curses_common.h
+	"extern.h"
+	"keypad.h"
+
+1674225440 c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\keypad.h
+
+1706617012 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\chase.c
+	"rogue.h"
+	"curses.h"
+
+1706623217 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\command.c
+	"rogue.h"
+	"curses.h"
+
+1706620995 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\curses.c
+	"rogue.h"
+	"curses.h"
+	"curses_dos.h"
+	<SDL/SDL.h>
+	"font.h"
+	"util.h"
+
+1704267639 c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\curses_dos.h
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326110987 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_platform.h
+
+1326110994 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_config_win32.h
+	"SDL_platform.h"
+
+1326111000 c:\program files\codeblocks\sdl-1.2.15\include\sdl\begin_code.h
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\close_code.h
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_keysym.h
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1704974984 c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\font.h
+
+1703415883 c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\util.h
+
+1704271834 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\daemon.c
+	"rogue.h"
+	"curses.h"
+
+1674225440 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\daemons.c
+	"rogue.h"
+	"curses.h"
+
+1706426010 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\env.c
+	"rogue.h"
+
+1706169698 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\extern.c
+	"rogue.h"
+
+1706005372 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\fakedos.c
+	"rogue.h"
+	"curses.h"
+
+1706617018 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\fight.c
+	"rogue.h"
+	"curses.h"
+
+1704974984 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\font.c
+	<SDL/SDL.h>
+	<SDL_image.h>
+	"font.h"
+	"util.h"
+
+1325788834 c:\program files\codeblocks\sdl-1.2.15\include\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326110987 c:\program files\codeblocks\sdl-1.2.15\include\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_platform.h
+
+1326110994 c:\program files\codeblocks\sdl-1.2.15\include\sdl_config_win32.h
+	"SDL_platform.h"
+
+1326111000 c:\program files\codeblocks\sdl-1.2.15\include\begin_code.h
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\close_code.h
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_keysym.h
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738639 c:\program files\codeblocks\sdl-1.2.15\include\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1704271517 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\init.c
+	"rogue.h"
+	"curses.h"
+
+1706623964 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\input.c
+	<SDL/SDL.h>
+	"rogue.h"
+
+1706622548 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\io.c
+	"rogue.h"
+	"curses.h"
+	<SDL/SDL.h>
+	"util.h"
+
+1674225440 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\list.c
+	"rogue.h"
+	"curses.h"
+
+1704108228 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\load.c
+	"rogue.h"
+	"curses.h"
+
+1706091476 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\mach_dep.c
+	"rogue.h"
+	"curses.h"
+
+1706624154 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\main.c
+	<SDL/SDL.h>
+	"rogue.h"
+	"curses.h"
+	"font.h"
+	"util.h"
+
+1703841847 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\maze.c
+	"rogue.h"
+	"curses.h"
+
+1705482777 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\misc.c
+	"rogue.h"
+	"curses.h"
+
+1706617028 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\monsters.c
+	"rogue.h"
+	"curses.h"
+
+1705049412 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\move.c
+	"rogue.h"
+	"curses.h"
+
+1704274562 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\new_leve.c
+	"rogue.h"
+	"curses.h"
+
+1705488863 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\pack.c
+	"rogue.h"
+	"curses.h"
+
+1703841398 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\passages.c
+	"rogue.h"
+
+1706617034 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\potions.c
+	"rogue.h"
+	"curses.h"
+
+1674225440 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\protect.c
+	"rogue.h"
+
+1674225440 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\rings.c
+	"rogue.h"
+	"curses.h"
+
+1706617040 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\rip.c
+	"rogue.h"
+	"curses.h"
+
+1706620329 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\rogue_draw.c
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+	"font.h"
+	"rogue.h"
+	"curses.h"
+
+1703841893 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\rooms.c
+	"rogue.h"
+	"curses.h"
+
+1706603949 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\save.c
+	"rogue.h"
+	"curses.h"
+
+1674225440 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\scrolls.c
+	"rogue.h"
+	"curses.h"
+
+1674225440 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\slime.c
+	"rogue.h"
+	"curses.h"
+
+1706617047 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\sticks.c
+	"rogue.h"
+	"curses.h"
+
+1674225440 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\strings.c
+	"extern.h"
+
+1706616995 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\things.c
+	"rogue.h"
+	"curses.h"
+
+1706620026 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\util.c
+	<dirent.h>
+	<SDL/SDL.h>
+	<math.h>
+	"util.h"
+
+1705475554 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\weapons.c
+	"rogue.h"
+	"curses.h"
+
+1674225440 source:c:\users\mb\downloads\mes_telechargements\music\roguelike\rogue_original\reverse-rogue\rogue_ascii\src\wizard.c
+	"rogue.h"
+	"curses.h"
+

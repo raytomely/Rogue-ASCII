@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="rogue_ascii" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/rogue_ascii" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="C:/Program Files/CodeBlocks/SDL-1.2.15/lib/SDL_image.lib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="C:/Program Files/CodeBlocks/SDL-1.2.15/include" />
+		</Compiler>
+		<Linker>
+			<Add library="mingw32" />
+			<Add library="SDLmain" />
+			<Add library="SDL.dll" />
+			<Add library="user32" />
+			<Add library="gdi32" />
+			<Add library="winmm" />
+			<Add library="dxguid" />
+			<Add directory="C:/Program Files/CodeBlocks/SDL-1.2.15/lib" />
+		</Linker>
+		<Unit filename="src/armor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/chase.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/command.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/curses.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/curses.h" />
+		<Unit filename="src/curses_common.h" />
+		<Unit filename="src/curses_dos.h" />
+		<Unit filename="src/daemon.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/daemons.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/env.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/extern.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/extern.h" />
+		<Unit filename="src/fakedos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/fight.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/font.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/font.h" />
+		<Unit filename="src/init.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/input.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/io.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/keypad.h" />
+		<Unit filename="src/list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/load.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/mach_dep.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/maze.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/misc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/monsters.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/move.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/new_leve.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/pack.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/passages.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/potions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/protect.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/rings.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/rip.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/rogue.h" />
+		<Unit filename="src/rogue_draw.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/rooms.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/save.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/scrolls.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/slime.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sticks.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/strings.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/swint.h" />
+		<Unit filename="src/things.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/util.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/util.h" />
+		<Unit filename="src/weapons.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/wizard.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
