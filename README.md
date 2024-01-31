@@ -12,5 +12,5 @@ https://github.com/MestreLion/roguepc
 
 https://www.maizure.org/projects/decoded-rogue/
 
-https://britzl.github.io/roguearchive/
+**NOTE:** the original rogue can found [here](https://britzl.github.io/roguearchive/).
 
