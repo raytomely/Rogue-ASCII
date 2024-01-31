@@ -12,7 +12,7 @@ Happy gaming !
 ```
 
 ### Cheat Keys
-- Refer to [cheat_keys.txt](cheat_keys.txt).
+- Refer to [cheat_keys.txt](cheat_keys.txt) 'cheating' in game.
 
 
 ## References
