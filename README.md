@@ -6,6 +6,11 @@ Port of original PC-DOS Epyx Rogue to SDL
 <sup>*(these are actual in-game screenshots)*</sup>
 
 
+
+```sh
+Happy gaming !
+```
+
 ### Cheat Keys
 - Refer to [cheat_keys.txt](cheat_keys.txt).
 
