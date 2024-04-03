@@ -6,6 +6,7 @@
 
 #include "rogue.h"
 #include "curses.h"
+#include <SDL/SDL.h>
 
 #define NONE 100
 
@@ -336,5 +337,6 @@ tick_pause(void)
 #endif
 */
 	refresh();
-	msleep(55);
+	msleep(55);SDL_Delay(55);
+
 }

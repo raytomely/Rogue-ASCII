@@ -10,7 +10,9 @@
 
 extern SDL_Surface *screen, *saved_screen;
 byte video_memory [25][80];
-void print_rogue_char(SDL_Surface *surface, int x, int y, unsigned char c);
+byte saved_video_memory [25][80];
+void print_rogue_char(byte c);
+
 
 int *sbrk(int* addr){return addr;}
 int _dsval = 0x00;
@@ -377,7 +379,7 @@ void winit(void)
 	COLS    =  80;
 	scr_ds  =  0xB800;
 	at_table = monoc_attr;
-	memset(video_memory, ' ', sizeof(video_memory));
+	memset(video_memory, 0, sizeof(video_memory));
 
 	switch (scr_type) {
 		/*
@@ -453,6 +455,7 @@ void wdump()
     dmain(savewin,LINES*COLS,scr_ds,0);
     is_saved = TRUE;
     memmove(saved_screen->pixels, screen->pixels, screen->pitch*screen->h);
+    memmove(saved_video_memory, video_memory, sizeof(video_memory));
 }
 
 char *sav_win()
@@ -467,6 +470,7 @@ void res_win()
 	//if (savewin == _flags)
 		dmain(savewin,LINES*COLS,0xb800,8192);
     memmove(screen->pixels, saved_screen->pixels, screen->pitch*screen->h);
+    memmove(video_memory, saved_video_memory, sizeof(video_memory));
 }
 
 /*
@@ -677,6 +681,8 @@ void implode()
 	delay = scr_type == 7 ? 500 : 10;
 	for (r = 0,c = 0,ec = COLS-1; r < 10; r++,c += cinc,er--,ec -= cinc) {
 		vbox(sng_box, r, c, er, ec);
+        SDL_Flip(screen);
+		SDL_Delay(50);
 		for (j = delay; j--; )
 			;
 		for (j = r+1; j <= er-1; j++) {
@@ -684,6 +690,16 @@ void implode()
 			move(j, ec-cinc+1); repchr(' ', cinc-1);
 		}
 		vbox(spc_box, r, c, er, ec);
+	}
+}
+
+void repchr2(chr,cnt)
+	byte chr; int cnt;
+{
+	while(cnt-- > 0) {
+		print_rogue_char(chr);
+		video_memory[c_row][c_col] = 0;
+		c_col++;
 	}
 }
 
@@ -705,31 +721,55 @@ void drop_curtain()
 	green();
 	//vbox(sng_box, 0, 0, LINES-1, COLS-1);
 	vbox(spc_box, 0, 0, LINES-1, COLS-1);
+	move(22, 1); repchr(0, COLS-2);
 	yellow();
 	for (r = 1; r < LINES-1; r++) {
 		move(r, 1);
-		//repchr(0xb1, COLS-2);  SDL_Flip(screen); SDL_Delay(50);
-		repchr(0, COLS-2);
+		repchr2(0xb1, COLS-2);  SDL_Flip(screen); SDL_Delay(50);
+		//repchr(0, COLS-2);
 		for (j = delay; j--; )
 			;
 	}
 	scr_ds = svwin_ds;
 	move(0,0);
 	standend();
+
+	SDL_Rect fill_rect = {0, CHAR_HEIGHT * 21 + 13, CHAR_WIDTH * 40, CHAR_HEIGHT * 3 + 3};
+	SDL_FillRect(screen, &fill_rect, 0x000000);
 }
 
 void raise_curtain()
 {
-	register int i, j, o, delay;
+	//register int i, j, o, delay;
 
 	if (svwin_ds == -1)
 		return;
 	scr_ds = old_ds;
-	delay = (scr_type == 7 ? 3000 : 2000);
-	for (i = 0, o = (LINES-1)*COLS*2; i < LINES; i++, o -= COLS*2) {
+	//delay = (scr_type == 7 ? 3000 : 2000);
+	/*for (i = 0, o = (LINES-1)*COLS*2; i < LINES; i++, o -= COLS*2) {
 		dmaout(savewin + o, COLS, scr_ds, o);
 		for (j = delay; j--; )
 			;
+	}*/
+
+    SDL_Rect fill_rect = {0, CHAR_HEIGHT, screen->w, screen->h - (CHAR_HEIGHT * 4 + 3)};
+	SDL_FillRect(screen, &fill_rect, 0x000000);
+    enter_room(&hero); mvaddch(hero.y, hero.x, PLAYER);
+    wdump(); res_win();
+    int r;
+    yellow();
+    for (r = 1; r < LINES-1; r++) {
+		move(r, 1);
+		repchr2(0xb1, COLS-2);
+    }
+    int y;
+
+
+	for (y = screen->h-CHAR_HEIGHT ; y > -1; y-=CHAR_HEIGHT)
+    {
+		memmove(screen->pixels+y*screen->pitch, saved_screen->pixels+y*screen->pitch, screen->pitch*CHAR_HEIGHT);
+		SDL_Flip(screen);
+		SDL_Delay(50);
 	}
 }
 
@@ -978,11 +1018,11 @@ putchr(byte ch)
     //if(isascii(ch))
     {
         //printf("ch=%c c_row=%d c_col=%d ch_attr=%d \n", ch, c_row, c_col, ch_attr);
-        SDL_Rect pos = {c_col*CHAR_WIDTH, c_row*CHAR_HEIGHT, CHAR_WIDTH, CHAR_HEIGHT};
+        //SDL_Rect pos = {c_col*CHAR_WIDTH, c_row*CHAR_HEIGHT, CHAR_WIDTH, CHAR_HEIGHT};
         /*pos.x = c_col*CHAR_WIDTH; pos.y = c_row*CHAR_HEIGHT;
         SDL_FillRect(screen, &pos, SDL_MapRGB(screen->format, 0, 0, 0));
         print_char(screen, c_col*CHAR_WIDTH, c_row*CHAR_HEIGHT, ch);*/
-        print_rogue_char(screen, pos.x, pos.y, ch);
+        print_rogue_char(ch);
         video_memory[c_row][c_col] = ch;
         //SDL_UpdateRect(screen, pos.x, pos.y, pos.w, pos.h);
     }
@@ -1221,7 +1261,8 @@ int getinfo(str,size)
                 break;
             case '\b':
                 if (str != retstr) {
-                    putchr(' ');
+                    if(readcnt < size)
+                        putchr(' ');
                     backspace();
                 	readcnt--;
                 	str--;

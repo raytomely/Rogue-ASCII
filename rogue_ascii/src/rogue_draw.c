@@ -48,12 +48,11 @@ Uint32 rogue_colors[] = {
 extern int c_row, c_col, ch_attr;
 extern SDL_Surface *screen;
 
-void print_rogue_char(SDL_Surface *surface, int x, int y, unsigned char c)
+void print_rogue_char(byte c)
 {
     SDL_Rect pos = {c_col*CHAR_WIDTH, c_row*CHAR_HEIGHT, CHAR_WIDTH, CHAR_HEIGHT};
-    pos.x = c_col*CHAR_WIDTH; pos.y = c_row*CHAR_HEIGHT;
     SDL_FillRect(screen, &pos, rogue_colors[GET_BG_COLOR]);
-    print_char_colored(screen, x, y, c, rogue_colors[GET_FG_COLOR]);
+    print_char_colored(screen, pos.x, pos.y, c, rogue_colors[GET_FG_COLOR]);
 }
 
 void render_rooms(SDL_Surface *screen)
@@ -120,7 +119,7 @@ void render_objects(SDL_Surface *screen)
 {
     int x, y;
 
-    for(y = 0; y < MAXLINES-3; y++)
+    for(y = 1; y < MAXLINES-3; y++)
     {
         for(x = 0; x < MAXCOLS; x ++)
         {
@@ -141,10 +140,17 @@ void render_objects(SDL_Surface *screen)
                 //case CALLABLE:
                 case STAIRS: print_char_colored(screen, x*CHAR_WIDTH, (y+YOFFSET)*CHAR_HEIGHT, chat(y,x), GREEN);break;
             }
-            if(moat(y,x))
-                print_char_colored(screen, x*CHAR_WIDTH, (y+YOFFSET)*CHAR_HEIGHT, moat(y,x)->t_disguise, GREY);
+            //if(moat(y,x))
+                //print_char_colored(screen, x*CHAR_WIDTH, (y+YOFFSET)*CHAR_HEIGHT, moat(y,x)->t_disguise, GREY);
         }
     }
+}
+
+void render_monsters(SDL_Surface *screen)
+{
+    register THING *tp;
+	for (tp = mlist ; tp != NULL ; tp = next(tp))
+		print_char_colored(screen, tp->t_pos.x*CHAR_WIDTH, (tp->t_pos.y+YOFFSET)*CHAR_HEIGHT, tp->t_disguise, GREY);
 }
 
 void draw_symbols(SDL_Surface *screen)
@@ -170,6 +176,7 @@ void draw_level(SDL_Surface *screen)
     render_passages(screen);
     render_maze(screen);
     render_objects(screen);
+    render_monsters(screen);
     //draw_symbols(screen);
     print_char_colored(screen, oldpos.x*CHAR_WIDTH, (oldpos.y+YOFFSET)*CHAR_HEIGHT, PLAYER, YELLOW);
 }
