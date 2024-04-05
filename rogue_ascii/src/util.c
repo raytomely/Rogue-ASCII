@@ -244,3 +244,109 @@ void blit_blended(SDL_Surface *src, SDL_Rect *srcrect, SDL_Surface *dst, SDL_Rec
         src_bitmap += src->w;
     }
 }
+
+void draw_rect(SDL_Surface *dst, int x, int y, int w, int h, Uint32 color, Uint8 thickness)
+{
+    int line_start, line_end, i, t, x_buff, y_buff;
+    int bpp = dst->format->BytesPerPixel;
+    int inc = dst->pitch >> 2; //dst->w
+    Uint32 *dst_buffer, *old_dst_buffer;
+
+    if(w < 0)
+    {
+        x += w; w = -w;
+    }
+
+    if(h < 0)
+    {
+        y += h; h = -h;
+    }
+
+    if(y >= 0 && y <= dst->h)
+    {
+        line_start = x;  line_end = x + w;
+        if(line_end > 0 && line_start < dst->w)
+        {
+            if(line_start < 0) line_start = 0;
+            if(line_end > dst->w) line_end = dst->w;
+            dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + y * dst->pitch + line_start * bpp);
+            for(t = 0; t < thickness; t++)
+            {
+                for(i = 0; i < line_end - line_start; i++)
+                {
+                    dst_buffer[i] = color;
+                }
+                if((y + t) > dst->h) break;
+                dst_buffer += inc;
+            }
+        }
+    }
+
+    if((y + h) >= 0 && (y + h) <= dst->h)
+    {
+        line_start = x;  line_end = x + w;
+        if(line_end > 0 && line_start < dst->w)
+        {
+            if(line_start < 0) line_start = 0;
+            if(line_end > dst->w) line_end = dst->w;
+            y_buff = y + h - thickness;
+            if(y_buff < 0) y_buff = 0;
+            dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + y_buff * dst->pitch + line_start * bpp);
+            for(t = 0; t < thickness; t++)
+            {
+                for(i = 0; i < line_end - line_start; i++)
+                {
+                    dst_buffer[i] = color;
+                }
+                if((y + t) > dst->h) break;
+                dst_buffer += inc;
+            }
+        }
+    }
+
+    if(x >= 0 && x <= dst->w)
+    {
+        line_start = y;  line_end = y + h;
+        if(line_end > 0 && line_start < dst->h)
+        {
+            if(line_start < 0) line_start = 0;
+            if(line_end > dst->h) line_end = dst->h;
+            dst_buffer = old_dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + line_start * dst->pitch + x * bpp);
+            for(t = 0; t < thickness; t++)
+            {
+                if((x + t) > dst->w) break;
+                dst_buffer = old_dst_buffer + t;
+                for(i = 0; i < line_end - line_start; i++)
+                {
+                    *dst_buffer = color;
+                    dst_buffer += inc;
+                }
+            }
+        }
+    }
+
+    if((x + w) >= 0 && (x + w) <= dst->w)
+    {
+        line_start = y;  line_end = y + h;
+        if(line_end > 0 && line_start < dst->h)
+        {
+            if(line_start < 0) line_start = 0;
+            if(line_end > dst->h) line_end = dst->h;
+            x_buff = x + w - thickness;
+            if(x_buff < 0) x_buff = 0;
+            dst_buffer = old_dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + line_start * dst->pitch + x_buff * bpp);
+            for(t = 0; t < thickness; t++)
+            {
+                if((x + t) > dst->w) break;
+                dst_buffer = old_dst_buffer + t;
+                for(i = 0; i < line_end - line_start; i++)
+                {
+                    *dst_buffer = color;
+                    dst_buffer += inc;
+                }
+            }
+        }
+    }
+}
+
+
