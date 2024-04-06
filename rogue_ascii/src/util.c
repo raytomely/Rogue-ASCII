@@ -270,6 +270,7 @@ void draw_rect(SDL_Surface *dst, int x, int y, int w, int h, Uint32 color, Uint8
             if(line_start < 0) line_start = 0;
             if(line_end > dst->w) line_end = dst->w;
             dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + y * dst->pitch + line_start * bpp);
+            if(thickness > h) thickness = h;
             for(t = 0; t < thickness; t++)
             {
                 for(i = 0; i < line_end - line_start; i++)
@@ -292,6 +293,7 @@ void draw_rect(SDL_Surface *dst, int x, int y, int w, int h, Uint32 color, Uint8
             y_buff = y + h - thickness;
             if(y_buff < 0) y_buff = 0;
             dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + y_buff * dst->pitch + line_start * bpp);
+            if(thickness > h) thickness = h;
             for(t = 0; t < thickness; t++)
             {
                 for(i = 0; i < line_end - line_start; i++)
@@ -312,6 +314,7 @@ void draw_rect(SDL_Surface *dst, int x, int y, int w, int h, Uint32 color, Uint8
             if(line_start < 0) line_start = 0;
             if(line_end > dst->h) line_end = dst->h;
             dst_buffer = old_dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + line_start * dst->pitch + x * bpp);
+            if(thickness > w) thickness = w;
             for(t = 0; t < thickness; t++)
             {
                 if((x + t) > dst->w) break;
@@ -335,6 +338,7 @@ void draw_rect(SDL_Surface *dst, int x, int y, int w, int h, Uint32 color, Uint8
             x_buff = x + w - thickness;
             if(x_buff < 0) x_buff = 0;
             dst_buffer = old_dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + line_start * dst->pitch + x_buff * bpp);
+            if(thickness > w) thickness = w;
             for(t = 0; t < thickness; t++)
             {
                 if((x + t) > dst->w) break;
