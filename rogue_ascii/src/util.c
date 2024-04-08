@@ -247,7 +247,7 @@ void blit_blended(SDL_Surface *src, SDL_Rect *srcrect, SDL_Surface *dst, SDL_Rec
 
 void draw_rect(SDL_Surface *dst, int x, int y, int w, int h, Uint32 color, Uint8 thickness)
 {
-    int line_start, line_end, i, t, x_buff, y_buff;
+    int line_start, line_end, i, t, t_end, x_buff, y_buff, bail_out = 0;
     int bpp = dst->format->BytesPerPixel;
     int inc = dst->pitch >> 2; //dst->w
     Uint32 *dst_buffer, *old_dst_buffer;
@@ -262,39 +262,59 @@ void draw_rect(SDL_Surface *dst, int x, int y, int w, int h, Uint32 color, Uint8
         y += h; h = -h;
     }
 
-    if(y >= 0 && y <= dst->h)
+    if(thickness > h || thickness > w || thickness == 0)
     {
-        line_start = x;  line_end = x + w;
-        if(line_end > 0 && line_start < dst->w)
-        {
-            if(line_start < 0) line_start = 0;
-            if(line_end > dst->w) line_end = dst->w;
-            dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + y * dst->pitch + line_start * bpp);
-            if(thickness > h) thickness = h;
-            for(t = 0; t < thickness; t++)
-            {
-                for(i = 0; i < line_end - line_start; i++)
-                {
-                    dst_buffer[i] = color;
-                }
-                if((y + t) > dst->h) break;
-                dst_buffer += inc;
-            }
-        }
+        t_end = h;
+        bail_out = 1;
     }
-
-    if((y + h) >= 0 && (y + h) <= dst->h)
+    else
+        t_end = thickness;
+    if((y + t_end) >= 0 && y <= dst->h)
     {
+        y_buff = y;
+        if(y_buff < 0)
+        {
+           y_buff = 0; t_end = t_end + y;
+        }
+        else if((y + t_end) > dst->h)
+            t_end = dst->h - y;
         line_start = x;  line_end = x + w;
         if(line_end > 0 && line_start < dst->w)
         {
             if(line_start < 0) line_start = 0;
             if(line_end > dst->w) line_end = dst->w;
-            y_buff = y + h - thickness;
-            if(y_buff < 0) y_buff = 0;
             dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + y_buff * dst->pitch + line_start * bpp);
-            if(thickness > h) thickness = h;
-            for(t = 0; t < thickness; t++)
+            for(t = 0; t < t_end; t++)
+            {
+                for(i = 0; i < line_end - line_start; i++)
+                {
+                    dst_buffer[i] = color;
+                }
+                if((y + t) > dst->h) break;
+                dst_buffer += inc;
+            }
+        }
+    }
+    if(bail_out) return;
+
+    if(thickness > h) t_end = h; else t_end = thickness;
+    if((y + h) >= 0 && (y + h - t_end) <= dst->h)
+    {
+        y_buff = y + h - t_end;
+        if(y_buff < 0)
+        {
+           y_buff = 0; t_end = y + h;
+        }
+        else if((y + h) > dst->h)
+            t_end = dst->h - (y + h - t_end);
+
+        line_start = x;  line_end = x + w;
+        if(line_end > 0 && line_start < dst->w)
+        {
+            if(line_start < 0) line_start = 0;
+            if(line_end > dst->w) line_end = dst->w;
+            dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + y_buff * dst->pitch + line_start * bpp);
+            for(t = 0; t < t_end; t++)
             {
                 for(i = 0; i < line_end - line_start; i++)
                 {
@@ -306,16 +326,23 @@ void draw_rect(SDL_Surface *dst, int x, int y, int w, int h, Uint32 color, Uint8
         }
     }
 
-    if(x >= 0 && x <= dst->w)
+    if(thickness > w) t_end = w; else t_end = thickness;
+    if((x + t_end) >= 0 && x <= dst->w)
     {
+        x_buff = x;
+        if(x_buff < 0)
+        {
+           x_buff = 0; t_end = t_end + x;
+        }
+        else if((x + t_end) > dst->w)
+            t_end = dst->w - x;
         line_start = y;  line_end = y + h;
         if(line_end > 0 && line_start < dst->h)
         {
             if(line_start < 0) line_start = 0;
             if(line_end > dst->h) line_end = dst->h;
-            dst_buffer = old_dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + line_start * dst->pitch + x * bpp);
-            if(thickness > w) thickness = w;
-            for(t = 0; t < thickness; t++)
+            dst_buffer = old_dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + line_start * dst->pitch + x_buff * bpp);
+            for(t = 0; t < t_end; t++)
             {
                 if((x + t) > dst->w) break;
                 dst_buffer = old_dst_buffer + t;
@@ -328,18 +355,23 @@ void draw_rect(SDL_Surface *dst, int x, int y, int w, int h, Uint32 color, Uint8
         }
     }
 
-    if((x + w) >= 0 && (x + w) <= dst->w)
+    if(thickness > w) t_end = w; else t_end = thickness;
+    if((x + w) >= 0 && (x + w - t_end) <= dst->w)
     {
+        x_buff = x + w - t_end;
+        if(x_buff < 0)
+        {
+           x_buff = 0; t_end = x + w;
+        }
+        else if((x + w) > dst->w)
+            t_end = dst->w - (x + w - t_end);
         line_start = y;  line_end = y + h;
         if(line_end > 0 && line_start < dst->h)
         {
             if(line_start < 0) line_start = 0;
             if(line_end > dst->h) line_end = dst->h;
-            x_buff = x + w - thickness;
-            if(x_buff < 0) x_buff = 0;
             dst_buffer = old_dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + line_start * dst->pitch + x_buff * bpp);
-            if(thickness > w) thickness = w;
-            for(t = 0; t < thickness; t++)
+            for(t = 0; t < t_end; t++)
             {
                 if((x + t) > dst->w) break;
                 dst_buffer = old_dst_buffer + t;
@@ -352,5 +384,124 @@ void draw_rect(SDL_Surface *dst, int x, int y, int w, int h, Uint32 color, Uint8
         }
     }
 }
+
+void draw_rect2(SDL_Surface *dst, int x, int y, int w, int h, Uint32 color, Uint8 thickness)
+{
+    int line_start, line_end, i, t;
+    int bpp = dst->format->BytesPerPixel;
+    int inc = dst->pitch >> 2; //dst->w
+    Uint32 *dst_buffer, *old_dst_buffer;
+
+    if(w < 0)
+    {
+        x += w; w = -w;
+    }
+
+    if(h < 0)
+    {
+        y += h; h = -h;
+    }
+
+    if(thickness >= h || thickness >= w || thickness == 0)
+    {
+        thickness = h;
+        if((y + thickness) >= 0 && y <= dst->h)
+        {
+            if(y < 0)
+            {
+               thickness = thickness + y; y = 0;
+            }
+            else if((y + thickness) > dst->h)
+                thickness = dst->h - y;
+            line_start = x;  line_end = x + w;
+            if(line_end > 0 && line_start < dst->w)
+            {
+                if(line_start < 0) line_start = 0;
+                if(line_end > dst->w) line_end = dst->w;
+                dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + y * dst->pitch + line_start * bpp);
+                for(t = 0; t < thickness; t++)
+                {
+                    for(i = 0; i < line_end - line_start; i++)
+                    {
+                        dst_buffer[i] = color;
+                    }
+                    if((y + t) > dst->h) break;
+                    dst_buffer += inc;
+                }
+            }
+        }
+        return;
+    }
+
+    if (x + w > 0 && x < dst->w && y + h > 0 && y < dst->h)
+        while(thickness)
+        {
+            if(y >= 0 && y < dst->h)
+            {
+                line_start = x;  line_end = x + w;
+                if(line_end > 0 && line_start < dst->w)
+                {
+                    if(line_start < 0) line_start = 0;
+                    if(line_end > dst->w) line_end = dst->w;
+                    dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + y * dst->pitch + line_start * bpp);
+                    for(i = 0; i < line_end - line_start; i++)
+                    {
+                        dst_buffer[i] = color;
+                    }
+                }
+            }
+
+            if((y + h) >= 0 && (y + h) < dst->h)
+            {
+                line_start = x;  line_end = x + w;
+                if(line_end > 0 && line_start < dst->w)
+                {
+                    if(line_start < 0) line_start = 0;
+                    if(line_end > dst->w) line_end = dst->w;
+                    dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + (y + h) * dst->pitch + line_start * bpp);
+                    for(i = 0; i < line_end - line_start + 1; i++)
+                    {
+                        dst_buffer[i] = color;
+                    }
+                }
+            }
+
+            if(x >= 0 && x < dst->w)
+            {
+                line_start = y;  line_end = y + h;
+                if(line_end > 0 && line_start < dst->h)
+                {
+                    if(line_start < 0) line_start = 0;
+                    if(line_end > dst->h) line_end = dst->h;
+                    dst_buffer = old_dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + line_start * dst->pitch + x * bpp);
+                    for(i = 0; i < line_end - line_start; i++)
+                    {
+                        *dst_buffer = color;
+                        dst_buffer += inc;
+                    }
+                }
+            }
+
+            if((x + w) >= 0 && (x + w) < dst->w)
+            {
+                line_start = y;  line_end = y + h;
+                if(line_end > 0 && line_start < dst->h)
+                {
+                    if(line_start < 0) line_start = 0;
+                    if(line_end > dst->h) line_end = dst->h;
+                    dst_buffer = old_dst_buffer = (Uint32 *)((Uint8 *)dst->pixels + line_start * dst->pitch + (x + w) * bpp);
+                    for(i = 0; i < line_end - line_start; i++)
+                    {
+                        *dst_buffer = color;
+                        dst_buffer += inc;
+                    }
+                }
+            }
+            thickness--; x++; y++;
+            w-=2; if(w <= 0) break;
+            h-=2; if(h <= 0) break;
+        }
+}
+
 
 
